@@ -2,11 +2,21 @@ from github import Github
 from decouple import config
 
 g = Github(config("GITHUB_TOKEN"))
-PREFIX = "Spravka"
+PREFIXES = ["TiHub","Spravka","Platform","School","dasdas"]
 
 # Delete repos
-for repo in g.get_user().get_repos():
-    if PREFIX in repo.name:
-        repo.delete()
+def task():
+    for repo in g.get_user().get_repos():
+        for PREFIX in PREFIXES:
+            if PREFIX in repo.name:
+                print(repo.name)
+                repo.delete()
+
+while True:
+    try:
+        task()
+    except:
+        print("Error")
+
 
 print("Successfully deleted the repos!")
