@@ -2,7 +2,7 @@ from github import Github
 from decouple import config
 
 g = Github(config("GITHUB_TOKEN"))
-PREFIXES = ["TiHub","Spravka","Platform","School","dasdas"]
+PREFIXES = ["Spravka","Platform","School","dasdas"]
 
 # Delete repos
 def task():
