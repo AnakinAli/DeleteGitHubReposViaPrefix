@@ -1,7 +1,10 @@
 from github import Github
-from decouple import config
+import os
+from dotenv import load_dotenv
 
-g = Github(config("GITHUB_TOKEN"))
+load_dotenv()
+
+g = Github(os.environ["GITHUB_TOKEN"])
 PREFIXES = ["Spravka","Platform","School","dasdas"]
 
 # Delete repos
